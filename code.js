@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// Apna databse connect karna hai
 mongoose.connect('mongodb://localhost:27017/your_database_name', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 const LeaderboardSchema = new Schema({
-  // Define your schema fields here, e.g.:
+  // Define schema fields here, e.g.:
   name: String,
   score: Number,
 });
@@ -18,7 +19,7 @@ async function initData() {
   try {
     const leaderboardArrayList = await LeaderboardModel.find().exec();
 
-    leaderboardArrayList.sort(); // You may need to define a custom sorting function here
+    leaderboardArrayList.sort(); // May need to define a custom sorting function here
 
     if (leaderboardArrayList.length > 10) {
       leaderboardArrayList.splice(10);
