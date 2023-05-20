@@ -18,8 +18,8 @@ const LeaderboardModel = mongoose.model('Leaderboard', LeaderboardSchema);
 async function initData() {
   try {
     const leaderboardArrayList = await LeaderboardModel.find().exec();
-
-    leaderboardArrayList.sort(); // May need to define a custom sorting function here
+// May need to define a custom sorting function here
+    leaderboardArrayList.sort(); 
 
     if (leaderboardArrayList.length > 10) {
       leaderboardArrayList.splice(10);
